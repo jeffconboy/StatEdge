@@ -1,0 +1,229 @@
+name: Manual Data Backfill
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: 'Start date for backfill (YYYY-MM-DD)'
+        required: true
+        type: string
+      end_date:
+        description: 'End date for backfill (YYYY-MM-DD)'
+        required: true
+        type: string
+      data_types:
+        description: 'Data types to backfill'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - statcast
+          - fangraphs-batting
+          - fangraphs-pitching
+          - team-stats
+          - schedules
+      dry_run:
+        description: 'Run in dry-run mode (test without inserting data)'
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  backfill-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120  # 2 hours for large backfills
+    
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: sports_data
+          POSTGRES_USER: sports_user
+          POSTGRES_PASSWORD: sports_secure_2025
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        cd mlb-data-service
+        python -m pip install --upgrade pip
+        pip install -r daily_collection_requirements.txt
+    
+    - name: Validate date inputs
+      run: |
+        python -c "
+        from datetime import datetime
+        start = datetime.strptime('${{ github.event.inputs.start_date }}', '%Y-%m-%d')
+        end = datetime.strptime('${{ github.event.inputs.end_date }}', '%Y-%m-%d')
+        
+        if start > end:
+            raise ValueError('Start date must be before end date')
+        
+        if (end - start).days > 30:
+            print('⚠️ WARNING: Backfilling more than 30 days may take a very long time!')
+        
+        print(f'✅ Will backfill data from {start.date()} to {end.date()}')
+        print(f'📊 Data types: ${{ github.event.inputs.data_types }}')
+        print(f'🧪 Dry run: ${{ github.event.inputs.dry_run }}')
+        "
+    
+    - name: Setup database schema
+      env:
+        PGPASSWORD: sports_secure_2025
+      run: |
+        # Create required tables (same as daily collection)
+        psql -h localhost -U sports_user -d sports_data -c "
+        CREATE TABLE IF NOT EXISTS statcast (
+          id SERIAL PRIMARY KEY,
+          game_pk INTEGER,
+          game_date DATE,
+          batter INTEGER,
+          pitcher INTEGER,
+          events VARCHAR(50),
+          description VARCHAR(255),
+          game_year INTEGER,
+          launch_speed DECIMAL,
+          launch_angle DECIMAL,
+          hit_distance_sc DECIMAL
+        );
+        
+        CREATE TABLE IF NOT EXISTS fangraphs_batting (
+          \\\"IDfg\\\" INTEGER,
+          \\\"Season\\\" INTEGER,
+          \\\"Name\\\" VARCHAR(255),
+          \\\"Team\\\" VARCHAR(10),
+          \\\"AVG\\\" DECIMAL,
+          \\\"HR\\\" INTEGER,
+          \\\"RBI\\\" INTEGER,
+          \\\"WAR\\\" DECIMAL,
+          PRIMARY KEY (\\\"IDfg\\\", \\\"Season\\\")
+        );
+        
+        CREATE TABLE IF NOT EXISTS fangraphs_pitching (
+          \\\"IDfg\\\" INTEGER,
+          \\\"Season\\\" INTEGER,
+          \\\"Name\\\" VARCHAR(255),
+          \\\"Team\\\" VARCHAR(10),
+          \\\"ERA\\\" DECIMAL,
+          \\\"W\\\" INTEGER,
+          \\\"L\\\" INTEGER,
+          \\\"WAR\\\" DECIMAL,
+          PRIMARY KEY (\\\"IDfg\\\", \\\"Season\\\")
+        );
+        "
+    
+    - name: Run data backfill
+      env:
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_USER: sports_user
+        DB_PASSWORD: sports_secure_2025
+        DB_NAME: sports_data
+        START_DATE: ${{ github.event.inputs.start_date }}
+        END_DATE: ${{ github.event.inputs.end_date }}
+        DATA_TYPES: ${{ github.event.inputs.data_types }}
+        DRY_RUN: ${{ github.event.inputs.dry_run }}
+      run: |
+        cd mlb-data-service
+        
+        python -c "
+        import os
+        import asyncio
+        from datetime import datetime, timedelta
+        from daily_data_collection import DailyDataCollector
+        
+        async def backfill_data():
+            db_config = {
+                'host': os.getenv('DB_HOST', 'localhost'),
+                'port': int(os.getenv('DB_PORT', 5432)),
+                'user': os.getenv('DB_USER', 'sports_user'),
+                'password': os.getenv('DB_PASSWORD', 'sports_secure_2025'),
+                'database': os.getenv('DB_NAME', 'sports_data')
+            }
+            
+            start_date = datetime.strptime(os.getenv('START_DATE'), '%Y-%m-%d').date()
+            end_date = datetime.strptime(os.getenv('END_DATE'), '%Y-%m-%d').date()
+            data_types = os.getenv('DATA_TYPES', 'all')
+            dry_run = os.getenv('DRY_RUN', 'false').lower() == 'true'
+            
+            print(f'🚀 Starting backfill from {start_date} to {end_date}')
+            print(f'📊 Data types: {data_types}')
+            print(f'🧪 Dry run: {dry_run}')
+            
+            current_date = start_date
+            total_days = (end_date - start_date).days + 1
+            completed_days = 0
+            
+            while current_date <= end_date:
+                print(f'\\n📅 Processing {current_date} ({completed_days+1}/{total_days})')
+                
+                # Create collector for this date
+                collector = DailyDataCollector(db_config)
+                collector.yesterday = current_date  # Override the yesterday date
+                
+                try:
+                    if data_types == 'all' or 'statcast' in data_types:
+                        if not dry_run:
+                            await collector.collect_statcast_data()
+                        else:
+                            print('✅ Would collect Statcast data')
+                    
+                    if data_types == 'all' or 'fangraphs-batting' in data_types:
+                        if not dry_run:
+                            await collector.collect_fangraphs_batting_data()
+                        else:
+                            print('✅ Would collect FanGraphs batting data')
+                    
+                    if data_types == 'all' or 'fangraphs-pitching' in data_types:
+                        if not dry_run:
+                            await collector.collect_fangraphs_pitching_data()
+                        else:
+                            print('✅ Would collect FanGraphs pitching data')
+                    
+                    completed_days += 1
+                    
+                except Exception as e:
+                    print(f'❌ Error processing {current_date}: {e}')
+                
+                current_date += timedelta(days=1)
+            
+            print(f'\\n🎉 Backfill completed! Processed {completed_days}/{total_days} days')
+        
+        asyncio.run(backfill_data())
+        "
+    
+    - name: Upload backfill logs
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: backfill-logs-${{ github.event.inputs.start_date }}-to-${{ github.event.inputs.end_date }}-${{ github.run_number }}
+        path: |
+          mlb-data-service/*.log
+        retention-days: 30
+    
+    - name: Backfill results summary
+      if: always()
+      run: |
+        echo "## Data Backfill Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Date Range:** ${{ github.event.inputs.start_date }} to ${{ github.event.inputs.end_date }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Data Types:** ${{ github.event.inputs.data_types }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Mode:** ${{ github.event.inputs.dry_run == 'true' && 'Dry Run' || 'Full Backfill' }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Completed:** $(date)" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "📊 Check the uploaded logs for detailed results." >> $GITHUB_STEP_SUMMARY

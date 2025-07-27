@@ -1,19 +1,25 @@
-name: Daily MLB Data Collection
+name: Daily Data Collection Job
 
 on:
   schedule:
-    # Run at 6:00 AM UTC daily (2:00 AM EST)
+    # Run daily at 6:00 AM UTC (perfect for collecting previous day's data)
     - cron: '0 6 * * *'
-  workflow_dispatch:  # Allow manual trigger
+  workflow_dispatch:
     inputs:
       collection_date:
-        description: 'Date to collect data for (YYYY-MM-DD, defaults to yesterday)'
+        description: 'Date to collect data for (YYYY-MM-DD format, defaults to yesterday)'
         required: false
         type: string
+      dry_run:
+        description: 'Run in dry-run mode (test without inserting data)'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
-  daily-collection:
+  collect-daily-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     
     services:
       postgres:
@@ -55,26 +61,166 @@ jobs:
     
     - name: Setup database schema
       env:
-        DB_HOST: localhost
-        DB_PORT: 5432
-        DB_USER: sports_user
-        DB_PASSWORD: sports_secure_2025
-        DB_NAME: sports_data
+        PGPASSWORD: sports_secure_2025
       run: |
-        # Run database migrations or schema setup here
-        # For now, we'll assume tables exist or create them via SQL scripts
-        echo "Database schema setup completed"
-    
-    - name: Run dry run test
-      env:
-        DB_HOST: localhost
-        DB_PORT: 5432
-        DB_USER: sports_user
-        DB_PASSWORD: sports_secure_2025
-        DB_NAME: sports_data
-      run: |
-        cd mlb-data-service
-        python test_collection_dry_run.py
+        # Create required tables
+        psql -h localhost -U sports_user -d sports_data -c "
+        CREATE TABLE IF NOT EXISTS statcast (
+          id SERIAL PRIMARY KEY,
+          game_pk INTEGER,
+          game_date DATE,
+          game_year INTEGER,
+          game_type VARCHAR(10),
+          at_bat_number INTEGER,
+          pitch_number INTEGER,
+          batter INTEGER,
+          pitcher INTEGER,
+          player_name VARCHAR(255),
+          pitch_type VARCHAR(10),
+          pitch_name VARCHAR(50),
+          release_speed DECIMAL,
+          release_pos_x DECIMAL,
+          release_pos_y DECIMAL,
+          release_pos_z DECIMAL,
+          release_extension DECIMAL,
+          release_spin_rate DECIMAL,
+          pfx_x DECIMAL,
+          pfx_z DECIMAL,
+          vx0 DECIMAL,
+          vy0 DECIMAL,
+          vz0 DECIMAL,
+          ax DECIMAL,
+          ay DECIMAL,
+          az DECIMAL,
+          plate_x DECIMAL,
+          plate_z DECIMAL,
+          sz_top DECIMAL,
+          sz_bot DECIMAL,
+          zone INTEGER,
+          balls INTEGER,
+          strikes INTEGER,
+          outs_when_up INTEGER,
+          inning INTEGER,
+          inning_topbot VARCHAR(10),
+          stand VARCHAR(1),
+          p_throws VARCHAR(1),
+          on_1b INTEGER,
+          on_2b INTEGER,
+          on_3b INTEGER,
+          home_team VARCHAR(10),
+          away_team VARCHAR(10),
+          home_score INTEGER,
+          away_score INTEGER,
+          events VARCHAR(50),
+          description VARCHAR(255),
+          type VARCHAR(1),
+          hit_location INTEGER,
+          bb_type VARCHAR(50),
+          launch_speed DECIMAL,
+          launch_angle DECIMAL,
+          hit_distance_sc DECIMAL,
+          estimated_ba_using_speedangle DECIMAL,
+          estimated_woba_using_speedangle DECIMAL,
+          woba_value DECIMAL,
+          delta_home_win_exp DECIMAL,
+          delta_run_exp DECIMAL
+        );
+        
+        CREATE TABLE IF NOT EXISTS mlb_players (
+          id SERIAL PRIMARY KEY,
+          player_id INTEGER UNIQUE,
+          full_name VARCHAR(255),
+          team_id VARCHAR(10),
+          position_name VARCHAR(50),
+          status_code VARCHAR(10)
+        );
+        
+        CREATE TABLE IF NOT EXISTS fangraphs_batting (
+          \\\"IDfg\\\" INTEGER,
+          \\\"Season\\\" INTEGER,
+          \\\"Name\\\" VARCHAR(255),
+          \\\"Team\\\" VARCHAR(10),
+          \\\"Age\\\" INTEGER,
+          \\\"G\\\" INTEGER,
+          \\\"AB\\\" INTEGER,
+          \\\"PA\\\" INTEGER,
+          \\\"H\\\" INTEGER,
+          \\\"1B\\\" INTEGER,
+          \\\"2B\\\" INTEGER,
+          \\\"3B\\\" INTEGER,
+          \\\"HR\\\" INTEGER,
+          \\\"R\\\" INTEGER,
+          \\\"RBI\\\" INTEGER,
+          \\\"BB\\\" INTEGER,
+          \\\"IBB\\\" INTEGER,
+          \\\"SO\\\" INTEGER,
+          \\\"HBP\\\" INTEGER,
+          \\\"SF\\\" INTEGER,
+          \\\"SH\\\" INTEGER,
+          \\\"GDP\\\" INTEGER,
+          \\\"SB\\\" INTEGER,
+          \\\"CS\\\" INTEGER,
+          \\\"AVG\\\" DECIMAL,
+          \\\"OBP\\\" DECIMAL,
+          \\\"SLG\\\" DECIMAL,
+          \\\"OPS\\\" DECIMAL,
+          \\\"ISO\\\" DECIMAL,
+          \\\"BABIP\\\" DECIMAL,
+          \\\"wOBA\\\" DECIMAL,
+          \\\"wRAA\\\" DECIMAL,
+          \\\"wRC\\\" DECIMAL,
+          \\\"WAR\\\" DECIMAL,
+          \\\"wRC+\\\" INTEGER,
+          \\\"EV\\\" DECIMAL,
+          \\\"LA\\\" DECIMAL,
+          \\\"Barrel%\\\" DECIMAL,
+          \\\"maxEV\\\" DECIMAL,
+          \\\"HardHit%\\\" DECIMAL,
+          \\\"xBA\\\" DECIMAL,
+          \\\"xSLG\\\" DECIMAL,
+          \\\"xwOBA\\\" DECIMAL,
+          PRIMARY KEY (\\\"IDfg\\\", \\\"Season\\\")
+        );
+        
+        CREATE TABLE IF NOT EXISTS fangraphs_pitching (
+          \\\"IDfg\\\" INTEGER,
+          \\\"Season\\\" INTEGER,
+          \\\"Name\\\" VARCHAR(255),
+          \\\"Team\\\" VARCHAR(10),
+          \\\"Age\\\" INTEGER,
+          \\\"W\\\" INTEGER,
+          \\\"L\\\" INTEGER,
+          \\\"ERA\\\" DECIMAL,
+          \\\"G\\\" INTEGER,
+          \\\"GS\\\" INTEGER,
+          \\\"CG\\\" INTEGER,
+          \\\"SHO\\\" INTEGER,
+          \\\"SV\\\" INTEGER,
+          \\\"IP\\\" DECIMAL,
+          \\\"H\\\" INTEGER,
+          \\\"R\\\" INTEGER,
+          \\\"ER\\\" INTEGER,
+          \\\"HR\\\" INTEGER,
+          \\\"BB\\\" INTEGER,
+          \\\"SO\\\" INTEGER,
+          \\\"WHIP\\\" DECIMAL,
+          \\\"WAR\\\" DECIMAL,
+          \\\"FIP\\\" DECIMAL,
+          \\\"xFIP\\\" DECIMAL,
+          \\\"K/9\\\" DECIMAL,
+          \\\"BB/9\\\" DECIMAL,
+          \\\"HR/9\\\" DECIMAL,
+          \\\"BABIP\\\" DECIMAL,
+          \\\"LOB%\\\" DECIMAL,
+          \\\"GB%\\\" DECIMAL,
+          \\\"FB%\\\" DECIMAL,
+          \\\"LD%\\\" DECIMAL,
+          \\\"HR/FB\\\" DECIMAL,
+          \\\"ERA-\\\" INTEGER,
+          \\\"FIP-\\\" INTEGER,
+          PRIMARY KEY (\\\"IDfg\\\", \\\"Season\\\")
+        );
+        "
     
     - name: Run daily data collection
       env:
@@ -83,10 +229,16 @@ jobs:
         DB_USER: sports_user
         DB_PASSWORD: sports_secure_2025
         DB_NAME: sports_data
-        COLLECTION_DATE: ${{ github.event.inputs.collection_date || '' }}
       run: |
         cd mlb-data-service
-        python daily_data_collection.py
+        
+        if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+          echo "🧪 Running in DRY RUN mode"
+          python test_collection_dry_run.py
+        else
+          echo "🚀 Running FULL data collection"
+          python daily_data_collection.py
+        fi
     
     - name: Upload collection logs
       if: always()
@@ -94,9 +246,27 @@ jobs:
       with:
         name: daily-collection-logs-${{ github.run_number }}
         path: |
-          daily_collection.log
           mlb-data-service/*.log
         retention-days: 30
+    
+    - name: Collection results summary
+      if: always()
+      run: |
+        echo "## Daily Data Collection Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Date:** $(date)" >> $GITHUB_STEP_SUMMARY
+        echo "**Collection Mode:** ${{ github.event.inputs.dry_run == 'true' && 'Dry Run' || 'Full Collection' }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ -f "mlb-data-service/daily_collection.log" ]; then
+          echo "### Collection Summary" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          tail -n 20 mlb-data-service/daily_collection.log | grep -E "(Successfully|Error|✅|❌|⚠️)" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "📊 Check the uploaded logs for detailed results." >> $GITHUB_STEP_SUMMARY
     
     - name: Notify on failure
       if: failure()
@@ -106,14 +276,7 @@ jobs:
           github.rest.issues.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            title: `Daily Data Collection Failed - ${new Date().toISOString().split('T')[0]}`,
-            body: `The daily MLB data collection workflow failed on ${new Date().toISOString()}.
-            
-            **Run Details:**
-            - Workflow: ${context.workflow}
-            - Run ID: ${context.runId}
-            - Run Number: ${context.runNumber}
-            
-            Please check the logs for details.`,
-            labels: ['bug', 'data-collection', 'automation']
+            title: '🚨 Daily Data Collection Failed',
+            body: `Daily data collection job failed on ${new Date().toISOString()}\\n\\n**Workflow Run:** ${context.runId}\\n**Details:** Check the logs for more information.\\n\\nThis is an automated issue created by the daily collection workflow.`,
+            labels: ['bug', 'data-collection', 'automated']
           });
