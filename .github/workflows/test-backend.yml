@@ -1,0 +1,240 @@
+name: Test Backend Infrastructure
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'mlb-data-service/**'
+      - 'python-service/**'
+      - 'docker-compose*.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'mlb-data-service/**'
+      - 'python-service/**'
+      - 'docker-compose*.yml'
+  workflow_dispatch:
+
+jobs:
+  test-data-collection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: sports_data
+          POSTGRES_USER: sports_user
+          POSTGRES_PASSWORD: sports_secure_2025
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/daily_collection_requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          cd mlb-data-service
+          python -m pip install --upgrade pip
+          pip install -r daily_collection_requirements.txt
+
+      - name: Setup test database
+        env:
+          PGPASSWORD: sports_secure_2025
+        run: |
+          # Create basic table structure for testing
+          psql -h localhost -U sports_user -d sports_data -c "
+          CREATE TABLE IF NOT EXISTS statcast (
+            id SERIAL PRIMARY KEY,
+            game_pk INTEGER,
+            game_date DATE,
+            game_year INTEGER,
+            batter INTEGER,
+            pitcher INTEGER,
+            events VARCHAR(50)
+          );"
+          
+          psql -h localhost -U sports_user -d sports_data -c "
+          CREATE TABLE IF NOT EXISTS mlb_players (
+            id SERIAL PRIMARY KEY,
+            player_id INTEGER UNIQUE,
+            full_name VARCHAR(255)
+          );"
+          
+          psql -h localhost -U sports_user -d sports_data -c "
+          CREATE TABLE IF NOT EXISTS fangraphs_batting (
+            \"IDfg\" INTEGER,
+            \"Season\" INTEGER,
+            \"Name\" VARCHAR(255),
+            \"HR\" INTEGER,
+            PRIMARY KEY (\"IDfg\", \"Season\")
+          );"
+          
+          psql -h localhost -U sports_user -d sports_data -c "
+          CREATE TABLE IF NOT EXISTS fangraphs_pitching (
+            \"IDfg\" INTEGER,
+            \"Season\" INTEGER,
+            \"Name\" VARCHAR(255),
+            \"ERA\" DECIMAL,
+            PRIMARY KEY (\"IDfg\", \"Season\")
+          );"
+
+      - name: Test data collection dry run
+        env:
+          DB_HOST: localhost
+          DB_PORT: 5432
+          DB_USER: sports_user
+          DB_PASSWORD: sports_secure_2025
+          DB_NAME: sports_data
+        run: |
+          cd mlb-data-service
+          echo "🧪 Testing data collection system..."
+          python test_collection_dry_run.py
+          
+          echo "✅ Dry run test completed successfully!"
+
+      - name: Test database connectivity
+        env:
+          PGPASSWORD: sports_secure_2025
+        run: |
+          echo "🔌 Testing database connectivity..."
+          psql -h localhost -U sports_user -d sports_data -c "SELECT version();"
+          psql -h localhost -U sports_user -d sports_data -c "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';"
+          echo "✅ Database connectivity verified!"
+
+  test-api-endpoints:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: sports_data
+          POSTGRES_USER: sports_user
+          POSTGRES_PASSWORD: sports_secure_2025
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install Python service dependencies
+        run: |
+          cd python-service
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Setup test database for API
+        env:
+          PGPASSWORD: sports_secure_2025
+        run: |
+          psql -h localhost -U sports_user -d sports_data -c "
+          CREATE TABLE IF NOT EXISTS mlb_players (
+            id SERIAL PRIMARY KEY,
+            player_id INTEGER UNIQUE,
+            full_name VARCHAR(255),
+            team_id INTEGER,
+            position_name VARCHAR(50),
+            status_code VARCHAR(10)
+          );"
+          
+          # Insert test data
+          psql -h localhost -U sports_user -d sports_data -c "
+          INSERT INTO mlb_players (player_id, full_name, team_id, position_name, status_code) 
+          VALUES 
+            (592450, 'Aaron Judge', 147, 'Outfielder', 'A'),
+            (545361, 'Mike Trout', 108, 'Outfielder', 'A'),
+            (666176, 'Ronald Acuna Jr.', 144, 'Outfielder', 'A')
+          ON CONFLICT (player_id) DO NOTHING;"
+
+      - name: Start Python service
+        env:
+          DATABASE_URL: postgresql://sports_user:sports_secure_2025@localhost:5432/sports_data
+        run: |
+          cd python-service
+          python -m uvicorn main:app --host 0.0.0.0 --port 8000 &
+          echo $! > /tmp/uvicorn.pid
+          sleep 10
+
+      - name: Test API health endpoint
+        run: |
+          echo "🏥 Testing health endpoint..."
+          curl -f http://localhost:8000/health
+          echo "✅ Health endpoint working!"
+
+      - name: Test player search endpoint
+        run: |
+          echo "🔍 Testing player search..."
+          response=$(curl -s -X POST http://localhost:8000/api/players/search \
+            -H "Content-Type: application/json" \
+            -d '{"query": "Judge", "limit": 1}')
+          echo "Response: $response"
+          
+          if echo "$response" | grep -q "Aaron Judge"; then
+            echo "✅ Player search working!"
+          else
+            echo "❌ Player search failed!"
+            exit 1
+          fi
+
+      - name: Stop Python service
+        if: always()
+        run: |
+          if [ -f /tmp/uvicorn.pid ]; then
+            kill $(cat /tmp/uvicorn.pid) || true
+          fi
+
+  integration-test:
+    needs: [test-data-collection, test-api-endpoints]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: Check test results
+        run: |
+          echo "## Backend Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **Data Collection Tests:** ${{ needs.test-data-collection.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **API Endpoint Tests:** ${{ needs.test-api-endpoints.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ needs.test-data-collection.result }}" = "success" ] && [ "${{ needs.test-api-endpoints.result }}" = "success" ]; then
+            echo "🎉 **Overall Status:** All backend tests passed!" >> $GITHUB_STEP_SUMMARY
+            echo "Backend infrastructure is solid and ready for production!"
+          else
+            echo "⚠️ **Overall Status:** Some tests failed" >> $GITHUB_STEP_SUMMARY
+            echo "Please review failed tests before deploying."
+            exit 1
+          fi
