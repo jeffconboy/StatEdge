@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # Sports Data Service (formerly python-service)
   sports-data-service:
-    image: jeffconboy/mlb-data-service:python-backend
+    image: statedge-backend
     container_name: statedge_sports_data
     environment:
       - DATABASE_URL=postgresql://sports_user:sports_secure_2025@host.docker.internal:5432/sports_data
@@ -54,7 +54,7 @@ services:
 
   # React Frontend
   frontend:
-    image: jeffconboy/mlb-data-service:react-frontend
+    image: statedge-frontend
     container_name: statedge_frontend
     environment:
       - VITE_API_BASE_URL=http://localhost:18001/api

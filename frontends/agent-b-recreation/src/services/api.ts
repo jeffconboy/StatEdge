@@ -2,7 +2,7 @@ import axios from 'axios'
 import type { Player, Team, Game, StandingsData, TrendingPlayer } from '@/types'
 
 const api = axios.create({
-  baseURL: 'http://localhost:18001/api',  // Python backend container port
+  baseURL: 'http://localhost:8000/api',  // Clean backend container port
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json'
@@ -100,7 +100,14 @@ export interface AuthResponse {
 export const playerApi = {
   // Search players
   search: async (params: SearchPlayersRequest): Promise<any> => {
-    const response = await api.post('/players/search', params)
+    const queryParams = new URLSearchParams({
+      query: params.query,
+      limit: (params.limit || 10).toString()
+    })
+    if (params.position) queryParams.append('position', params.position)
+    if (params.team) queryParams.append('team', params.team)
+    
+    const response = await api.get(`/players/search?${queryParams.toString()}`)
     return response.data
   },
 
