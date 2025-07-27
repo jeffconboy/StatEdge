@@ -1,0 +1,119 @@
+name: Daily MLB Data Collection
+
+on:
+  schedule:
+    # Run at 6:00 AM UTC daily (2:00 AM EST)
+    - cron: '0 6 * * *'
+  workflow_dispatch:  # Allow manual trigger
+    inputs:
+      collection_date:
+        description: 'Date to collect data for (YYYY-MM-DD, defaults to yesterday)'
+        required: false
+        type: string
+
+jobs:
+  daily-collection:
+    runs-on: ubuntu-latest
+    
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: sports_data
+          POSTGRES_USER: sports_user
+          POSTGRES_PASSWORD: sports_secure_2025
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/daily_collection_requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    
+    - name: Install dependencies
+      run: |
+        cd mlb-data-service
+        python -m pip install --upgrade pip
+        pip install -r daily_collection_requirements.txt
+    
+    - name: Setup database schema
+      env:
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_USER: sports_user
+        DB_PASSWORD: sports_secure_2025
+        DB_NAME: sports_data
+      run: |
+        # Run database migrations or schema setup here
+        # For now, we'll assume tables exist or create them via SQL scripts
+        echo "Database schema setup completed"
+    
+    - name: Run dry run test
+      env:
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_USER: sports_user
+        DB_PASSWORD: sports_secure_2025
+        DB_NAME: sports_data
+      run: |
+        cd mlb-data-service
+        python test_collection_dry_run.py
+    
+    - name: Run daily data collection
+      env:
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_USER: sports_user
+        DB_PASSWORD: sports_secure_2025
+        DB_NAME: sports_data
+        COLLECTION_DATE: ${{ github.event.inputs.collection_date || '' }}
+      run: |
+        cd mlb-data-service
+        python daily_data_collection.py
+    
+    - name: Upload collection logs
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: daily-collection-logs-${{ github.run_number }}
+        path: |
+          daily_collection.log
+          mlb-data-service/*.log
+        retention-days: 30
+    
+    - name: Notify on failure
+      if: failure()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: `Daily Data Collection Failed - ${new Date().toISOString().split('T')[0]}`,
+            body: `The daily MLB data collection workflow failed on ${new Date().toISOString()}.
+            
+            **Run Details:**
+            - Workflow: ${context.workflow}
+            - Run ID: ${context.runId}
+            - Run Number: ${context.runNumber}
+            
+            Please check the logs for details.`,
+            labels: ['bug', 'data-collection', 'automation']
+          });

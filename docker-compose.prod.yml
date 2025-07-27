@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  database:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-statedge}
+      POSTGRES_USER: ${POSTGRES_USER:-statedge_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-statedge_user} -d ${POSTGRES_DB:-statedge}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  # Python FastAPI Backend
+  api:
+    build:
+      context: ./python-service
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-statedge_user}:${POSTGRES_PASSWORD}@database:5432/${POSTGRES_DB:-statedge}
+      API_HOST: 0.0.0.0
+      API_PORT: 18001
+    volumes:
+      - ./static:/app/static:ro
+    ports:
+      - "18001:18001"
+    depends_on:
+      database:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Vue.js Frontend (Production build with Nginx)
+  frontend:
+    build:
+      context: ./frontends/agent-b-recreation
+      dockerfile: Dockerfile.prod
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local

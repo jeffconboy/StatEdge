@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  # Sports Data Service (formerly python-service)
+  sports-data-service:
+    image: jeffconboy/mlb-data-service:python-backend
+    container_name: statedge_sports_data
+    environment:
+      - DATABASE_URL=postgresql://sports_user:sports_secure_2025@host.docker.internal:5432/sports_data
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - SERVICE_NAME=sports-data-service
+    volumes:
+      - ./python-service:/app
+      - ./static:/app/static
+    ports:
+      - "18001:18001"
+    restart: unless-stopped
+
+  # Betting Service (new microservice)
+  betting-service:
+    build: ./betting-service
+    container_name: statedge_betting
+    environment:
+      - BETTING_DATABASE_URL=postgresql://betting_user:betting_secure_2025@host.docker.internal:5432/betting_data
+      - TANK01_API_KEY=${TANK01_API_KEY}
+      - SPORTS_DATA_SERVICE_URL=http://sports-data-service:18001
+      - SERVICE_NAME=betting-service
+    volumes:
+      - ./betting-service:/app
+    ports:
+      - "18002:18002"
+    depends_on:
+      - sports-data-service
+    restart: unless-stopped
+
+  # Node.js API Gateway
+  node-api:
+    build: ./node-api
+    container_name: statedge_node
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+      - DATABASE_URL=postgresql://sports_user:sports_secure_2025@host.docker.internal:5432/sports_data
+      - SPORTS_DATA_SERVICE_URL=http://sports-data-service:18001
+      - BETTING_SERVICE_URL=http://betting-service:18002
+    volumes:
+      - ./node-api:/app
+    ports:
+      - "3001:3001"
+    depends_on:
+      - sports-data-service
+      - betting-service
+    restart: unless-stopped
+
+  # React Frontend
+  frontend:
+    image: jeffconboy/mlb-data-service:react-frontend
+    container_name: statedge_frontend
+    environment:
+      - VITE_API_BASE_URL=http://localhost:18001/api
+      - VITE_BETTING_API_URL=http://localhost:18002/api
+      - VITE_GATEWAY_URL=http://localhost:3001/api
+    ports:
+      - "3002:3002"
+    depends_on:
+      - sports-data-service
+      - betting-service
+      - node-api
+    restart: unless-stopped

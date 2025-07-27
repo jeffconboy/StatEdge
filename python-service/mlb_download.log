@@ -1,0 +1,1236 @@
+🚀 Starting MLB.com photo scraping...
+⚾ MLB.COM PLAYER PHOTO SCRAPER
+==================================================
+📊 Found 1693 active players in database
+📥 Processing 1693 MLB players...
+📁 Storage: /home/jeffreyconboy/StatEdge/python-service/static/mlb-photos
+
+
+📦 Processing batch 1/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Aaron Ashby (ID: -983, Team: None)
+  🔍 Scraping Aaron Ashby: https://www.mlb.com/player/aaron-ashby--983
+  ❌ No photo found for Aaron Ashby
+
+🔄 Processing Aaron Brooks (ID: -494, Team: None)
+  🔍 Scraping Aaron Brooks: https://www.mlb.com/player/aaron-brooks--494
+  ❌ No photo found for Aaron Brooks
+
+🔄 Processing Aaron Bummer (ID: -630, Team: None)
+  🔍 Scraping Aaron Bummer: https://www.mlb.com/player/aaron-bummer--630
+  ❌ No photo found for Aaron Bummer
+
+🔄 Processing Aaron Civale (ID: -777, Team: None)
+  🔍 Scraping Aaron Civale: https://www.mlb.com/player/aaron-civale--777
+  ❌ No photo found for Aaron Civale
+
+🔄 Processing Aaron Hicks (ID: -1377, Team: None)
+  🔍 Scraping Aaron Hicks: https://www.mlb.com/player/aaron-hicks--1377
+  ❌ No photo found for Aaron Hicks
+
+🔄 Processing Aaron Judge (ID: 592450, Team: NYY)
+  🔍 Scraping Aaron Judge: https://www.mlb.com/player/aaron-judge-592450
+  📸 Found photo: https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_360,q_auto:best/v1/people/592450/headshot/67/current
+  📥 Downloading Aaron Judge photo...
+  ✅ Aaron Judge: 37,605 bytes
+
+🔄 Processing Aaron Nola (ID: -625, Team: None)
+  🔍 Scraping Aaron Nola: https://www.mlb.com/player/aaron-nola--625
+  ❌ No photo found for Aaron Nola
+
+🔄 Processing Aaron Schunk (ID: -400, Team: None)
+  🔍 Scraping Aaron Schunk: https://www.mlb.com/player/aaron-schunk--400
+  ❌ No photo found for Aaron Schunk
+
+🔄 Processing Abner Uribe (ID: -1029, Team: None)
+  🔍 Scraping Abner Uribe: https://www.mlb.com/player/abner-uribe--1029
+  ❌ No photo found for Abner Uribe
+
+🔄 Processing Abraham Toro (ID: -241, Team: None)
+  🔍 Scraping Abraham Toro: https://www.mlb.com/player/abraham-toro--241
+  ❌ No photo found for Abraham Toro
+
+📊 Batch 1 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 9/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 2/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Adael Amador (ID: -1358, Team: None)
+  🔍 Scraping Adael Amador: https://www.mlb.com/player/adael-amador--1358
+  ❌ No photo found for Adael Amador
+
+🔄 Processing Adam Cimber (ID: -595, Team: None)
+  🔍 Scraping Adam Cimber: https://www.mlb.com/player/adam-cimber--595
+  ❌ No photo found for Adam Cimber
+
+🔄 Processing Adam Duvall (ID: -1425, Team: None)
+  🔍 Scraping Adam Duvall: https://www.mlb.com/player/adam-duvall--1425
+  ❌ No photo found for Adam Duvall
+
+🔄 Processing Adam Frazier (ID: -1371, Team: None)
+  🔍 Scraping Adam Frazier: https://www.mlb.com/player/adam-frazier--1371
+  ❌ No photo found for Adam Frazier
+
+🔄 Processing Adam Kloffenstein (ID: -1002, Team: None)
+  🔍 Scraping Adam Kloffenstein: https://www.mlb.com/player/adam-kloffenstein--1002
+  ❌ No photo found for Adam Kloffenstein
+
+🔄 Processing Adam Mazur (ID: -1212, Team: None)
+  🔍 Scraping Adam Mazur: https://www.mlb.com/player/adam-mazur--1212
+  ❌ No photo found for Adam Mazur
+
+🔄 Processing Adam Oller (ID: -829, Team: None)
+  🔍 Scraping Adam Oller: https://www.mlb.com/player/adam-oller--829
+  ❌ No photo found for Adam Oller
+
+🔄 Processing Adam Ottavino (ID: -420, Team: None)
+  🔍 Scraping Adam Ottavino: https://www.mlb.com/player/adam-ottavino--420
+  ❌ No photo found for Adam Ottavino
+
+🔄 Processing Adbert Alzolay (ID: -701, Team: None)
+  🔍 Scraping Adbert Alzolay: https://www.mlb.com/player/adbert-alzolay--701
+  ❌ No photo found for Adbert Alzolay
+
+🔄 Processing Addison Barger (ID: -1346, Team: None)
+  🔍 Scraping Addison Barger: https://www.mlb.com/player/addison-barger--1346
+  ❌ No photo found for Addison Barger
+
+📊 Batch 2 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 19/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 3/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Adley Rutschman (ID: -81, Team: None)
+  🔍 Scraping Adley Rutschman: https://www.mlb.com/player/adley-rutschman--81
+  ❌ No photo found for Adley Rutschman
+
+🔄 Processing Adolis Garcia (ID: -1273, Team: None)
+  🔍 Scraping Adolis Garcia: https://www.mlb.com/player/adolis-garcia--1273
+  ❌ No photo found for Adolis Garcia
+
+🔄 Processing Adrian Del Castillo (ID: -231, Team: None)
+  🔍 Scraping Adrian Del Castillo: https://www.mlb.com/player/adrian-del-castillo--231
+  ❌ No photo found for Adrian Del Castillo
+
+🔄 Processing Adrian Houser (ID: -501, Team: None)
+  🔍 Scraping Adrian Houser: https://www.mlb.com/player/adrian-houser--501
+  ❌ No photo found for Adrian Houser
+
+🔄 Processing Adrian Morejon (ID: -823, Team: None)
+  🔍 Scraping Adrian Morejon: https://www.mlb.com/player/adrian-morejon--823
+  ❌ No photo found for Adrian Morejon
+
+🔄 Processing Agustin Ramirez (ID: -1466, Team: None)
+  🔍 Scraping Agustin Ramirez: https://www.mlb.com/player/agustin-ramirez--1466
+  ❌ No photo found for Agustin Ramirez
+
+🔄 Processing A.J. Blubaugh (ID: -1621, Team: None)
+  🔍 Scraping A.J. Blubaugh: https://www.mlb.com/player/aj-blubaugh--1621
+  ❌ No photo found for A.J. Blubaugh
+
+🔄 Processing A.J. Minter (ID: -735, Team: None)
+  🔍 Scraping A.J. Minter: https://www.mlb.com/player/aj-minter--735
+  ❌ No photo found for A.J. Minter
+
+🔄 Processing A.J. Puk (ID: -761, Team: None)
+  🔍 Scraping A.J. Puk: https://www.mlb.com/player/aj-puk--761
+  ❌ No photo found for A.J. Puk
+
+🔄 Processing AJ Smith-Shawver (ID: -1171, Team: None)
+  🔍 Scraping AJ Smith-Shawver: https://www.mlb.com/player/aj-smith-shawver--1171
+  ❌ No photo found for AJ Smith-Shawver
+
+📊 Batch 3 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 29/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 4/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Akil Baddoo (ID: -1333, Team: None)
+  🔍 Scraping Akil Baddoo: https://www.mlb.com/player/akil-baddoo--1333
+  ❌ No photo found for Akil Baddoo
+
+🔄 Processing Alan Busenitz (ID: -593, Team: None)
+  🔍 Scraping Alan Busenitz: https://www.mlb.com/player/alan-busenitz--593
+  ❌ No photo found for Alan Busenitz
+
+🔄 Processing Alan Rangel (ID: -1511, Team: None)
+  🔍 Scraping Alan Rangel: https://www.mlb.com/player/alan-rangel--1511
+  ❌ No photo found for Alan Rangel
+
+🔄 Processing Alan Roden (ID: -1471, Team: None)
+  🔍 Scraping Alan Roden: https://www.mlb.com/player/alan-roden--1471
+  ❌ No photo found for Alan Roden
+
+🔄 Processing Alan Trejo (ID: -1411, Team: None)
+  🔍 Scraping Alan Trejo: https://www.mlb.com/player/alan-trejo--1411
+  ❌ No photo found for Alan Trejo
+
+🔄 Processing Albert Suarez (ID: -435, Team: None)
+  🔍 Scraping Albert Suarez: https://www.mlb.com/player/albert-suarez--435
+  ❌ No photo found for Albert Suarez
+
+🔄 Processing Alec Bohm (ID: -47, Team: None)
+  🔍 Scraping Alec Bohm: https://www.mlb.com/player/alec-bohm--47
+  ❌ No photo found for Alec Bohm
+
+🔄 Processing Alec Burleson (ID: -246, Team: None)
+  🔍 Scraping Alec Burleson: https://www.mlb.com/player/alec-burleson--246
+  ❌ No photo found for Alec Burleson
+
+🔄 Processing Alec Marsh (ID: -1096, Team: None)
+  🔍 Scraping Alec Marsh: https://www.mlb.com/player/alec-marsh--1096
+  ❌ No photo found for Alec Marsh
+
+🔄 Processing Aledmys Diaz (ID: -1384, Team: None)
+  🔍 Scraping Aledmys Diaz: https://www.mlb.com/player/aledmys-diaz--1384
+  ❌ No photo found for Aledmys Diaz
+
+📊 Batch 4 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 39/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 5/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Alejandro Carrillo (ID: -1572, Team: None)
+  🔍 Scraping Alejandro Carrillo: https://www.mlb.com/player/alejandro-carrillo--1572
+  ❌ No photo found for Alejandro Carrillo
+
+🔄 Processing Alejandro Kirk (ID: -83, Team: None)
+  🔍 Scraping Alejandro Kirk: https://www.mlb.com/player/alejandro-kirk--83
+  ❌ No photo found for Alejandro Kirk
+
+🔄 Processing Alejandro Osuna (ID: -1667, Team: None)
+  🔍 Scraping Alejandro Osuna: https://www.mlb.com/player/alejandro-osuna--1667
+  ❌ No photo found for Alejandro Osuna
+
+🔄 Processing Alek Jacob (ID: -1156, Team: None)
+  🔍 Scraping Alek Jacob: https://www.mlb.com/player/alek-jacob--1156
+  ❌ No photo found for Alek Jacob
+
+🔄 Processing Alek Manoah (ID: -1087, Team: None)
+  🔍 Scraping Alek Manoah: https://www.mlb.com/player/alek-manoah--1087
+  ❌ No photo found for Alek Manoah
+
+🔄 Processing Alek Thomas (ID: -1284, Team: None)
+  🔍 Scraping Alek Thomas: https://www.mlb.com/player/alek-thomas--1284
+  ❌ No photo found for Alek Thomas
+
+🔄 Processing Alexander Canario (ID: -320, Team: None)
+  🔍 Scraping Alexander Canario: https://www.mlb.com/player/alexander-canario--320
+  ❌ No photo found for Alexander Canario
+
+🔄 Processing Alex Bregman (ID: -26, Team: None)
+  🔍 Scraping Alex Bregman: https://www.mlb.com/player/alex-bregman--26
+  ❌ No photo found for Alex Bregman
+
+🔄 Processing Alex Call (ID: -186, Team: None)
+  🔍 Scraping Alex Call: https://www.mlb.com/player/alex-call--186
+  ❌ No photo found for Alex Call
+
+🔄 Processing Alex Cobb (ID: -437, Team: None)
+  🔍 Scraping Alex Cobb: https://www.mlb.com/player/alex-cobb--437
+  ❌ No photo found for Alex Cobb
+
+📊 Batch 5 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 49/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 6/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Alex Faedo (ID: -802, Team: None)
+  🔍 Scraping Alex Faedo: https://www.mlb.com/player/alex-faedo--802
+  ❌ No photo found for Alex Faedo
+
+🔄 Processing Alexis Diaz (ID: -877, Team: None)
+  🔍 Scraping Alexis Diaz: https://www.mlb.com/player/alexis-diaz--877
+  ❌ No photo found for Alexis Diaz
+
+🔄 Processing Alex Jackson (ID: -1252, Team: None)
+  🔍 Scraping Alex Jackson: https://www.mlb.com/player/alex-jackson--1252
+  ❌ No photo found for Alex Jackson
+
+🔄 Processing Alex Kirilloff (ID: -1317, Team: None)
+  🔍 Scraping Alex Kirilloff: https://www.mlb.com/player/alex-kirilloff--1317
+  ❌ No photo found for Alex Kirilloff
+
+🔄 Processing Alex Lange (ID: -805, Team: None)
+  🔍 Scraping Alex Lange: https://www.mlb.com/player/alex-lange--805
+  ❌ No photo found for Alex Lange
+
+🔄 Processing Alex Speas (ID: -916, Team: None)
+  🔍 Scraping Alex Speas: https://www.mlb.com/player/alex-speas--916
+  ❌ No photo found for Alex Speas
+
+🔄 Processing Alex Verdugo (ID: -251, Team: None)
+  🔍 Scraping Alex Verdugo: https://www.mlb.com/player/alex-verdugo--251
+  ❌ No photo found for Alex Verdugo
+
+🔄 Processing Alex Vesia (ID: -1024, Team: None)
+  🔍 Scraping Alex Vesia: https://www.mlb.com/player/alex-vesia--1024
+  ❌ No photo found for Alex Vesia
+
+🔄 Processing Alex Wood (ID: -547, Team: None)
+  🔍 Scraping Alex Wood: https://www.mlb.com/player/alex-wood--547
+  ❌ No photo found for Alex Wood
+
+🔄 Processing Alex Young (ID: -722, Team: None)
+  🔍 Scraping Alex Young: https://www.mlb.com/player/alex-young--722
+  ❌ No photo found for Alex Young
+
+📊 Batch 6 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 59/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 7/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Alika Williams (ID: -1329, Team: None)
+  🔍 Scraping Alika Williams: https://www.mlb.com/player/alika-williams--1329
+  ❌ No photo found for Alika Williams
+
+🔄 Processing Ali Sanchez (ID: -1304, Team: None)
+  🔍 Scraping Ali Sanchez: https://www.mlb.com/player/ali-sanchez--1304
+  ❌ No photo found for Ali Sanchez
+
+🔄 Processing Allan Winans (ID: -884, Team: None)
+  🔍 Scraping Allan Winans: https://www.mlb.com/player/allan-winans--884
+  ❌ No photo found for Allan Winans
+
+🔄 Processing Amed Rosario (ID: -331, Team: None)
+  🔍 Scraping Amed Rosario: https://www.mlb.com/player/amed-rosario--331
+  ❌ No photo found for Amed Rosario
+
+🔄 Processing Amir Garrett (ID: -562, Team: None)
+  🔍 Scraping Amir Garrett: https://www.mlb.com/player/amir-garrett--562
+  ❌ No photo found for Amir Garrett
+
+🔄 Processing Amos Willingham (ID: -1067, Team: None)
+  🔍 Scraping Amos Willingham: https://www.mlb.com/player/amos-willingham--1067
+  ❌ No photo found for Amos Willingham
+
+🔄 Processing Andre Granillo (ID: -1584, Team: None)
+  🔍 Scraping Andre Granillo: https://www.mlb.com/player/andre-granillo--1584
+  ❌ No photo found for Andre Granillo
+
+🔄 Processing Andre Pallante (ID: -1066, Team: None)
+  🔍 Scraping Andre Pallante: https://www.mlb.com/player/andre-pallante--1066
+  ❌ No photo found for Andre Pallante
+
+🔄 Processing Andres Chaparro (ID: -352, Team: None)
+  🔍 Scraping Andres Chaparro: https://www.mlb.com/player/andres-chaparro--352
+  ❌ No photo found for Andres Chaparro
+
+🔄 Processing Andres Gimenez (ID: -79, Team: None)
+  🔍 Scraping Andres Gimenez: https://www.mlb.com/player/andres-gimenez--79
+  ❌ No photo found for Andres Gimenez
+
+📊 Batch 7 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 69/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 8/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Andres Munoz (ID: -849, Team: None)
+  🔍 Scraping Andres Munoz: https://www.mlb.com/player/andres-munoz--849
+  ❌ No photo found for Andres Munoz
+
+🔄 Processing Andrew Abbott (ID: -1166, Team: None)
+  🔍 Scraping Andrew Abbott: https://www.mlb.com/player/andrew-abbott--1166
+  ❌ No photo found for Andrew Abbott
+
+🔄 Processing Andrew Benintendi (ID: -1272, Team: None)
+  🔍 Scraping Andrew Benintendi: https://www.mlb.com/player/andrew-benintendi--1272
+  ❌ No photo found for Andrew Benintendi
+
+🔄 Processing Andrew Chafin (ID: -516, Team: None)
+  🔍 Scraping Andrew Chafin: https://www.mlb.com/player/andrew-chafin--516
+  ❌ No photo found for Andrew Chafin
+
+🔄 Processing Andrew Heaney (ID: -598, Team: None)
+  🔍 Scraping Andrew Heaney: https://www.mlb.com/player/andrew-heaney--598
+  ❌ No photo found for Andrew Heaney
+
+🔄 Processing Andrew Hoffmann (ID: -1589, Team: None)
+  🔍 Scraping Andrew Hoffmann: https://www.mlb.com/player/andrew-hoffmann--1589
+  ❌ No photo found for Andrew Hoffmann
+
+🔄 Processing Andrew Kittredge (ID: -510, Team: None)
+  🔍 Scraping Andrew Kittredge: https://www.mlb.com/player/andrew-kittredge--510
+  ❌ No photo found for Andrew Kittredge
+
+🔄 Processing Andrew Knapp (ID: -1255, Team: None)
+  🔍 Scraping Andrew Knapp: https://www.mlb.com/player/andrew-knapp--1255
+  ❌ No photo found for Andrew Knapp
+
+🔄 Processing Andrew Knizner (ID: -1396, Team: None)
+  🔍 Scraping Andrew Knizner: https://www.mlb.com/player/andrew-knizner--1396
+  ❌ No photo found for Andrew Knizner
+
+🔄 Processing Andrew McCutchen (ID: -256, Team: None)
+  🔍 Scraping Andrew McCutchen: https://www.mlb.com/player/andrew-mccutchen--256
+  ❌ No photo found for Andrew McCutchen
+
+📊 Batch 8 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 79/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 9/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Andrew Nardi (ID: -1060, Team: None)
+  🔍 Scraping Andrew Nardi: https://www.mlb.com/player/andrew-nardi--1060
+  ❌ No photo found for Andrew Nardi
+
+🔄 Processing Andrew Saalfrank (ID: -1070, Team: None)
+  🔍 Scraping Andrew Saalfrank: https://www.mlb.com/player/andrew-saalfrank--1070
+  ❌ No photo found for Andrew Saalfrank
+
+🔄 Processing Andrew Vaughn (ID: -1230, Team: None)
+  🔍 Scraping Andrew Vaughn: https://www.mlb.com/player/andrew-vaughn--1230
+  ❌ No photo found for Andrew Vaughn
+
+🔄 Processing Andrew Walters (ID: -1222, Team: None)
+  🔍 Scraping Andrew Walters: https://www.mlb.com/player/andrew-walters--1222
+  ❌ No photo found for Andrew Walters
+
+🔄 Processing Andrew Wantz (ID: -1016, Team: None)
+  🔍 Scraping Andrew Wantz: https://www.mlb.com/player/andrew-wantz--1016
+  ❌ No photo found for Andrew Wantz
+
+🔄 Processing Andruw Monasterio (ID: -1290, Team: None)
+  🔍 Scraping Andruw Monasterio: https://www.mlb.com/player/andruw-monasterio--1290
+  ❌ No photo found for Andruw Monasterio
+
+🔄 Processing Andry Lara (ID: -1582, Team: None)
+  🔍 Scraping Andry Lara: https://www.mlb.com/player/andry-lara--1582
+  ❌ No photo found for Andry Lara
+
+🔄 Processing Andy Ibanez (ID: -224, Team: None)
+  🔍 Scraping Andy Ibanez: https://www.mlb.com/player/andy-ibanez--224
+  ❌ No photo found for Andy Ibanez
+
+🔄 Processing Andy Pages (ID: -178, Team: None)
+  🔍 Scraping Andy Pages: https://www.mlb.com/player/andy-pages--178
+  ❌ No photo found for Andy Pages
+
+🔄 Processing Angel Chivilli (ID: -1092, Team: None)
+  🔍 Scraping Angel Chivilli: https://www.mlb.com/player/angel-chivilli--1092
+  ❌ No photo found for Angel Chivilli
+
+📊 Batch 9 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 89/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 10/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Angel Martinez (ID: -390, Team: None)
+  🔍 Scraping Angel Martinez: https://www.mlb.com/player/angel-martinez--390
+  ❌ No photo found for Angel Martinez
+
+🔄 Processing Angel Perdomo (ID: -1505, Team: None)
+  🔍 Scraping Angel Perdomo: https://www.mlb.com/player/angel-perdomo--1505
+  ❌ No photo found for Angel Perdomo
+
+🔄 Processing Angel Zerpa (ID: -956, Team: None)
+  🔍 Scraping Angel Zerpa: https://www.mlb.com/player/angel-zerpa--956
+  ❌ No photo found for Angel Zerpa
+
+🔄 Processing Anthony Banda (ID: -571, Team: None)
+  🔍 Scraping Anthony Banda: https://www.mlb.com/player/anthony-banda--571
+  ❌ No photo found for Anthony Banda
+
+🔄 Processing Anthony Bender (ID: -792, Team: None)
+  🔍 Scraping Anthony Bender: https://www.mlb.com/player/anthony-bender--792
+  ❌ No photo found for Anthony Bender
+
+🔄 Processing Anthony DeSclafani (ID: -1489, Team: None)
+  🔍 Scraping Anthony DeSclafani: https://www.mlb.com/player/anthony-desclafani--1489
+  ❌ No photo found for Anthony DeSclafani
+
+🔄 Processing Anthony Gose (ID: -431, Team: None)
+  🔍 Scraping Anthony Gose: https://www.mlb.com/player/anthony-gose--431
+  ❌ No photo found for Anthony Gose
+
+🔄 Processing Anthony Maldonado (ID: -1063, Team: None)
+  🔍 Scraping Anthony Maldonado: https://www.mlb.com/player/anthony-maldonado--1063
+  ❌ No photo found for Anthony Maldonado
+
+🔄 Processing Anthony Misiewicz (ID: -717, Team: None)
+  🔍 Scraping Anthony Misiewicz: https://www.mlb.com/player/anthony-misiewicz--717
+  ❌ No photo found for Anthony Misiewicz
+
+🔄 Processing Anthony Molina (ID: -1095, Team: None)
+  🔍 Scraping Anthony Molina: https://www.mlb.com/player/anthony-molina--1095
+  ❌ No photo found for Anthony Molina
+
+📊 Batch 10 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 99/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 11/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Anthony Rendon (ID: -1243, Team: None)
+  🔍 Scraping Anthony Rendon: https://www.mlb.com/player/anthony-rendon--1243
+  ❌ No photo found for Anthony Rendon
+
+🔄 Processing Anthony Rizzo (ID: -1277, Team: None)
+  🔍 Scraping Anthony Rizzo: https://www.mlb.com/player/anthony-rizzo--1277
+  ❌ No photo found for Anthony Rizzo
+
+🔄 Processing Anthony Santander (ID: -51, Team: None)
+  🔍 Scraping Anthony Santander: https://www.mlb.com/player/anthony-santander--51
+  ❌ No photo found for Anthony Santander
+
+🔄 Processing Anthony Seigler (ID: -1643, Team: None)
+  🔍 Scraping Anthony Seigler: https://www.mlb.com/player/anthony-seigler--1643
+  ❌ No photo found for Anthony Seigler
+
+🔄 Processing Anthony Veneziano (ID: -1097, Team: None)
+  🔍 Scraping Anthony Veneziano: https://www.mlb.com/player/anthony-veneziano--1097
+  ❌ No photo found for Anthony Veneziano
+
+🔄 Processing Anthony Volpe (ID: -45, Team: None)
+  🔍 Scraping Anthony Volpe: https://www.mlb.com/player/anthony-volpe--45
+  ❌ No photo found for Anthony Volpe
+
+🔄 Processing Antonio Senzatela (ID: -602, Team: None)
+  🔍 Scraping Antonio Senzatela: https://www.mlb.com/player/antonio-senzatela--602
+  ❌ No photo found for Antonio Senzatela
+
+🔄 Processing Aramis Garcia (ID: -1266, Team: None)
+  🔍 Scraping Aramis Garcia: https://www.mlb.com/player/aramis-garcia--1266
+  ❌ No photo found for Aramis Garcia
+
+🔄 Processing Armando Alvarez (ID: -1328, Team: None)
+  🔍 Scraping Armando Alvarez: https://www.mlb.com/player/armando-alvarez--1328
+  ❌ No photo found for Armando Alvarez
+
+🔄 Processing Aroldis Chapman (ID: -467, Team: None)
+  🔍 Scraping Aroldis Chapman: https://www.mlb.com/player/aroldis-chapman--467
+  ❌ No photo found for Aroldis Chapman
+
+📊 Batch 11 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 109/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 12/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Austin Adams (ID: -549, Team: None)
+  🔍 Scraping Austin Adams: https://www.mlb.com/player/austin-adams--549
+  ❌ No photo found for Austin Adams
+
+🔄 Processing Austin Barnes (ID: -268, Team: None)
+  🔍 Scraping Austin Barnes: https://www.mlb.com/player/austin-barnes--268
+  ❌ No photo found for Austin Barnes
+
+🔄 Processing Austin Cox (ID: -1546, Team: None)
+  🔍 Scraping Austin Cox: https://www.mlb.com/player/austin-cox--1546
+  ❌ No photo found for Austin Cox
+
+🔄 Processing Austin Davis (ID: -667, Team: None)
+  🔍 Scraping Austin Davis: https://www.mlb.com/player/austin-davis--667
+  ❌ No photo found for Austin Davis
+
+🔄 Processing Austin Gomber (ID: -645, Team: None)
+  🔍 Scraping Austin Gomber: https://www.mlb.com/player/austin-gomber--645
+  ❌ No photo found for Austin Gomber
+
+🔄 Processing Austin Hays (ID: -325, Team: None)
+  🔍 Scraping Austin Hays: https://www.mlb.com/player/austin-hays--325
+  ❌ No photo found for Austin Hays
+
+🔄 Processing Austin Hedges (ID: -291, Team: None)
+  🔍 Scraping Austin Hedges: https://www.mlb.com/player/austin-hedges--291
+  ❌ No photo found for Austin Hedges
+
+🔄 Processing Austin Kitchen (ID: -1145, Team: None)
+  🔍 Scraping Austin Kitchen: https://www.mlb.com/player/austin-kitchen--1145
+  ❌ No photo found for Austin Kitchen
+
+🔄 Processing Austin Martin (ID: -1274, Team: None)
+  🔍 Scraping Austin Martin: https://www.mlb.com/player/austin-martin--1274
+  ❌ No photo found for Austin Martin
+
+🔄 Processing Austin Nola (ID: -1658, Team: None)
+  🔍 Scraping Austin Nola: https://www.mlb.com/player/austin-nola--1658
+  ❌ No photo found for Austin Nola
+
+📊 Batch 12 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 119/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 13/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Austin Pruitt (ID: -596, Team: None)
+  🔍 Scraping Austin Pruitt: https://www.mlb.com/player/austin-pruitt--596
+  ❌ No photo found for Austin Pruitt
+
+🔄 Processing Austin Riley (ID: -96, Team: None)
+  🔍 Scraping Austin Riley: https://www.mlb.com/player/austin-riley--96
+  ❌ No photo found for Austin Riley
+
+🔄 Processing Austin Shenton (ID: -296, Team: None)
+  🔍 Scraping Austin Shenton: https://www.mlb.com/player/austin-shenton--296
+  ❌ No photo found for Austin Shenton
+
+🔄 Processing Austin Slater (ID: -1286, Team: None)
+  🔍 Scraping Austin Slater: https://www.mlb.com/player/austin-slater--1286
+  ❌ No photo found for Austin Slater
+
+🔄 Processing Austin Voth (ID: -588, Team: None)
+  🔍 Scraping Austin Voth: https://www.mlb.com/player/austin-voth--588
+  ❌ No photo found for Austin Voth
+
+🔄 Processing Austin Warren (ID: -1017, Team: None)
+  🔍 Scraping Austin Warren: https://www.mlb.com/player/austin-warren--1017
+  ❌ No photo found for Austin Warren
+
+🔄 Processing Austin Wells (ID: -44, Team: None)
+  🔍 Scraping Austin Wells: https://www.mlb.com/player/austin-wells--44
+  ❌ No photo found for Austin Wells
+
+🔄 Processing Austin Wynns (ID: -272, Team: None)
+  🔍 Scraping Austin Wynns: https://www.mlb.com/player/austin-wynns--272
+  ❌ No photo found for Austin Wynns
+
+🔄 Processing Avisail Garcia (ID: -391, Team: None)
+  🔍 Scraping Avisail Garcia: https://www.mlb.com/player/avisail-garcia--391
+  ❌ No photo found for Avisail Garcia
+
+🔄 Processing Bailey Falter (ID: -826, Team: None)
+  🔍 Scraping Bailey Falter: https://www.mlb.com/player/bailey-falter--826
+  ❌ No photo found for Bailey Falter
+
+📊 Batch 13 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 129/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 14/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Bailey Horn (ID: -1133, Team: None)
+  🔍 Scraping Bailey Horn: https://www.mlb.com/player/bailey-horn--1133
+  ❌ No photo found for Bailey Horn
+
+🔄 Processing Bailey Ober (ID: -882, Team: None)
+  🔍 Scraping Bailey Ober: https://www.mlb.com/player/bailey-ober--882
+  ❌ No photo found for Bailey Ober
+
+🔄 Processing Beau Brieske (ID: -1065, Team: None)
+  🔍 Scraping Beau Brieske: https://www.mlb.com/player/beau-brieske--1065
+  ❌ No photo found for Beau Brieske
+
+🔄 Processing Ben Brown (ID: -985, Team: None)
+  🔍 Scraping Ben Brown: https://www.mlb.com/player/ben-brown--985
+  ❌ No photo found for Ben Brown
+
+🔄 Processing Ben Casparius (ID: -1179, Team: None)
+  🔍 Scraping Ben Casparius: https://www.mlb.com/player/ben-casparius--1179
+  ❌ No photo found for Ben Casparius
+
+🔄 Processing Ben Gamel (ID: -382, Team: None)
+  🔍 Scraping Ben Gamel: https://www.mlb.com/player/ben-gamel--382
+  ❌ No photo found for Ben Gamel
+
+🔄 Processing Ben Heller (ID: -591, Team: None)
+  🔍 Scraping Ben Heller: https://www.mlb.com/player/ben-heller--591
+  ❌ No photo found for Ben Heller
+
+🔄 Processing Benjamin Williamson (ID: -1460, Team: None)
+  🔍 Scraping Benjamin Williamson: https://www.mlb.com/player/benjamin-williamson--1460
+  ❌ No photo found for Benjamin Williamson
+
+🔄 Processing Ben Joyce (ID: -1200, Team: None)
+  🔍 Scraping Ben Joyce: https://www.mlb.com/player/ben-joyce--1200
+  ❌ No photo found for Ben Joyce
+
+🔄 Processing Ben Lively (ID: -581, Team: None)
+  🔍 Scraping Ben Lively: https://www.mlb.com/player/ben-lively--581
+  ❌ No photo found for Ben Lively
+
+📊 Batch 14 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 139/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 15/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Bennett Sousa (ID: -1522, Team: None)
+  🔍 Scraping Bennett Sousa: https://www.mlb.com/player/bennett-sousa--1522
+  ❌ No photo found for Bennett Sousa
+
+🔄 Processing Ben Rice (ID: -1323, Team: None)
+  🔍 Scraping Ben Rice: https://www.mlb.com/player/ben-rice--1323
+  ❌ No photo found for Ben Rice
+
+🔄 Processing Ben Rortvedt (ID: -172, Team: None)
+  🔍 Scraping Ben Rortvedt: https://www.mlb.com/player/ben-rortvedt--172
+  ❌ No photo found for Ben Rortvedt
+
+🔄 Processing Billy Cook (ID: -304, Team: None)
+  🔍 Scraping Billy Cook: https://www.mlb.com/player/billy-cook--304
+  ❌ No photo found for Billy Cook
+
+🔄 Processing Billy McKinney (ID: -408, Team: None)
+  🔍 Scraping Billy McKinney: https://www.mlb.com/player/billy-mckinney--408
+  ❌ No photo found for Billy McKinney
+
+🔄 Processing Blade Tidwell (ID: -1619, Team: None)
+  🔍 Scraping Blade Tidwell: https://www.mlb.com/player/blade-tidwell--1619
+  ❌ No photo found for Blade Tidwell
+
+🔄 Processing Blaine Crim (ID: -1664, Team: None)
+  🔍 Scraping Blaine Crim: https://www.mlb.com/player/blaine-crim--1664
+  ❌ No photo found for Blaine Crim
+
+🔄 Processing Blair Henley (ID: -1069, Team: None)
+  🔍 Scraping Blair Henley: https://www.mlb.com/player/blair-henley--1069
+  ❌ No photo found for Blair Henley
+
+🔄 Processing Blake Dunn (ID: -406, Team: None)
+  🔍 Scraping Blake Dunn: https://www.mlb.com/player/blake-dunn--406
+  ❌ No photo found for Blake Dunn
+
+🔄 Processing Blake Perkins (ID: -157, Team: None)
+  🔍 Scraping Blake Perkins: https://www.mlb.com/player/blake-perkins--157
+  ❌ No photo found for Blake Perkins
+
+📊 Batch 15 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 149/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 16/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Blake Sabol (ID: -321, Team: None)
+  🔍 Scraping Blake Sabol: https://www.mlb.com/player/blake-sabol--321
+  ❌ No photo found for Blake Sabol
+
+🔄 Processing Blake Snell (ID: -535, Team: None)
+  🔍 Scraping Blake Snell: https://www.mlb.com/player/blake-snell--535
+  ❌ No photo found for Blake Snell
+
+🔄 Processing Blake Treinen (ID: -499, Team: None)
+  🔍 Scraping Blake Treinen: https://www.mlb.com/player/blake-treinen--499
+  ❌ No photo found for Blake Treinen
+
+🔄 Processing Blake Walston (ID: -1081, Team: None)
+  🔍 Scraping Blake Walston: https://www.mlb.com/player/blake-walston--1081
+  ❌ No photo found for Blake Walston
+
+🔄 Processing Blas Castano (ID: -1565, Team: None)
+  🔍 Scraping Blas Castano: https://www.mlb.com/player/blas-castano--1565
+  ❌ No photo found for Blas Castano
+
+🔄 Processing Blaze Alexander (ID: -1234, Team: None)
+  🔍 Scraping Blaze Alexander: https://www.mlb.com/player/blaze-alexander--1234
+  ❌ No photo found for Blaze Alexander
+
+🔄 Processing Bligh Madris (ID: -302, Team: None)
+  🔍 Scraping Bligh Madris: https://www.mlb.com/player/bligh-madris--302
+  ❌ No photo found for Bligh Madris
+
+🔄 Processing Bobby Dalbec (ID: -1409, Team: None)
+  🔍 Scraping Bobby Dalbec: https://www.mlb.com/player/bobby-dalbec--1409
+  ❌ No photo found for Bobby Dalbec
+
+🔄 Processing Bobby Miller (ID: -1104, Team: None)
+  🔍 Scraping Bobby Miller: https://www.mlb.com/player/bobby-miller--1104
+  ❌ No photo found for Bobby Miller
+
+🔄 Processing Bobby Witt Jr. (ID: -1, Team: None)
+  🔍 Scraping Bobby Witt Jr.: https://www.mlb.com/player/bobby-witt-jr--1
+  ❌ No photo found for Bobby Witt Jr.
+
+📊 Batch 16 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 159/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 17/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Bo Bichette (ID: -315, Team: None)
+  🔍 Scraping Bo Bichette: https://www.mlb.com/player/bo-bichette--315
+  ❌ No photo found for Bo Bichette
+
+🔄 Processing Bo Naylor (ID: -158, Team: None)
+  🔍 Scraping Bo Naylor: https://www.mlb.com/player/bo-naylor--158
+  ❌ No photo found for Bo Naylor
+
+🔄 Processing Bowden Francis (ID: -865, Team: None)
+  🔍 Scraping Bowden Francis: https://www.mlb.com/player/bowden-francis--865
+  ❌ No photo found for Bowden Francis
+
+🔄 Processing Braden Shewmake (ID: -1410, Team: None)
+  🔍 Scraping Braden Shewmake: https://www.mlb.com/player/braden-shewmake--1410
+  ❌ No photo found for Braden Shewmake
+
+🔄 Processing Bradgley Rodriguez (ID: -1583, Team: None)
+  🔍 Scraping Bradgley Rodriguez: https://www.mlb.com/player/bradgley-rodriguez--1583
+  ❌ No photo found for Bradgley Rodriguez
+
+🔄 Processing Brad Keller (ID: -609, Team: None)
+  🔍 Scraping Brad Keller: https://www.mlb.com/player/brad-keller--609
+  ❌ No photo found for Brad Keller
+
+🔄 Processing Bradley Blalock (ID: -1089, Team: None)
+  🔍 Scraping Bradley Blalock: https://www.mlb.com/player/bradley-blalock--1089
+  ❌ No photo found for Bradley Blalock
+
+🔄 Processing Bradley Lord (ID: -1626, Team: None)
+  🔍 Scraping Bradley Lord: https://www.mlb.com/player/bradley-lord--1626
+  ❌ No photo found for Bradley Lord
+
+🔄 Processing Brady Basso (ID: -1043, Team: None)
+  🔍 Scraping Brady Basso: https://www.mlb.com/player/brady-basso--1043
+  ❌ No photo found for Brady Basso
+
+🔄 Processing Brady Feigl (ID: -618, Team: None)
+  🔍 Scraping Brady Feigl: https://www.mlb.com/player/brady-feigl--618
+  ❌ No photo found for Brady Feigl
+
+📊 Batch 17 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 169/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 18/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Brady House (ID: -1457, Team: None)
+  🔍 Scraping Brady House: https://www.mlb.com/player/brady-house--1457
+  ❌ No photo found for Brady House
+
+🔄 Processing Brady Singer (ID: -1032, Team: None)
+  🔍 Scraping Brady Singer: https://www.mlb.com/player/brady-singer--1032
+  ❌ No photo found for Brady Singer
+
+🔄 Processing Brandon Bielak (ID: -799, Team: None)
+  🔍 Scraping Brandon Bielak: https://www.mlb.com/player/brandon-bielak--799
+  ❌ No photo found for Brandon Bielak
+
+🔄 Processing Brandon Crawford (ID: -376, Team: None)
+  🔍 Scraping Brandon Crawford: https://www.mlb.com/player/brandon-crawford--376
+  ❌ No photo found for Brandon Crawford
+
+🔄 Processing Brandon Drury (ID: -1440, Team: None)
+  🔍 Scraping Brandon Drury: https://www.mlb.com/player/brandon-drury--1440
+  ❌ No photo found for Brandon Drury
+
+🔄 Processing Brandon Eisert (ID: -1124, Team: None)
+  🔍 Scraping Brandon Eisert: https://www.mlb.com/player/brandon-eisert--1124
+  ❌ No photo found for Brandon Eisert
+
+🔄 Processing Brandon Hughes (ID: -980, Team: None)
+  🔍 Scraping Brandon Hughes: https://www.mlb.com/player/brandon-hughes--980
+  ❌ No photo found for Brandon Hughes
+
+🔄 Processing Brandon Leibrandt (ID: -623, Team: None)
+  🔍 Scraping Brandon Leibrandt: https://www.mlb.com/player/brandon-leibrandt--623
+  ❌ No photo found for Brandon Leibrandt
+
+🔄 Processing Brandon Lockridge (ID: -402, Team: None)
+  🔍 Scraping Brandon Lockridge: https://www.mlb.com/player/brandon-lockridge--402
+  ❌ No photo found for Brandon Lockridge
+
+🔄 Processing Brandon Lowe (ID: -105, Team: None)
+  🔍 Scraping Brandon Lowe: https://www.mlb.com/player/brandon-lowe--105
+  ❌ No photo found for Brandon Lowe
+
+📊 Batch 18 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 179/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 19/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Brandon Marsh (ID: -103, Team: None)
+  🔍 Scraping Brandon Marsh: https://www.mlb.com/player/brandon-marsh--103
+  ❌ No photo found for Brandon Marsh
+
+🔄 Processing Brandon Nimmo (ID: -78, Team: None)
+  🔍 Scraping Brandon Nimmo: https://www.mlb.com/player/brandon-nimmo--78
+  ❌ No photo found for Brandon Nimmo
+
+🔄 Processing Brandon Pfaadt (ID: -1138, Team: None)
+  🔍 Scraping Brandon Pfaadt: https://www.mlb.com/player/brandon-pfaadt--1138
+  ❌ No photo found for Brandon Pfaadt
+
+🔄 Processing Brandon Waddell (ID: -1507, Team: None)
+  🔍 Scraping Brandon Waddell: https://www.mlb.com/player/brandon-waddell--1507
+  ❌ No photo found for Brandon Waddell
+
+🔄 Processing Brandon Walter (ID: -1564, Team: None)
+  🔍 Scraping Brandon Walter: https://www.mlb.com/player/brandon-walter--1564
+  ❌ No photo found for Brandon Walter
+
+🔄 Processing Brandon Williamson (ID: -1039, Team: None)
+  🔍 Scraping Brandon Williamson: https://www.mlb.com/player/brandon-williamson--1039
+  ❌ No photo found for Brandon Williamson
+
+🔄 Processing Brandon Woodruff (ID: -1499, Team: None)
+  🔍 Scraping Brandon Woodruff: https://www.mlb.com/player/brandon-woodruff--1499
+  ❌ No photo found for Brandon Woodruff
+
+🔄 Processing Brandon Young (ID: -1579, Team: None)
+  🔍 Scraping Brandon Young: https://www.mlb.com/player/brandon-young--1579
+  ❌ No photo found for Brandon Young
+
+🔄 Processing Brandyn Garcia (ID: -1631, Team: None)
+  🔍 Scraping Brandyn Garcia: https://www.mlb.com/player/brandyn-garcia--1631
+  ❌ No photo found for Brandyn Garcia
+
+🔄 Processing Brant Hurter (ID: -1185, Team: None)
+  🔍 Scraping Brant Hurter: https://www.mlb.com/player/brant-hurter--1185
+  ❌ No photo found for Brant Hurter
+
+📊 Batch 19 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 189/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 20/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Braxton Ashcraft (ID: -1542, Team: None)
+  🔍 Scraping Braxton Ashcraft: https://www.mlb.com/player/braxton-ashcraft--1542
+  ❌ No photo found for Braxton Ashcraft
+
+🔄 Processing Braxton Fulford (ID: -1652, Team: None)
+  🔍 Scraping Braxton Fulford: https://www.mlb.com/player/braxton-fulford--1652
+  ❌ No photo found for Braxton Fulford
+
+🔄 Processing Braxton Garrett (ID: -913, Team: None)
+  🔍 Scraping Braxton Garrett: https://www.mlb.com/player/braxton-garrett--913
+  ❌ No photo found for Braxton Garrett
+
+🔄 Processing Brayan Bello (ID: -994, Team: None)
+  🔍 Scraping Brayan Bello: https://www.mlb.com/player/brayan-bello--994
+  ❌ No photo found for Brayan Bello
+
+🔄 Processing Brayan Rocchio (ID: -200, Team: None)
+  🔍 Scraping Brayan Rocchio: https://www.mlb.com/player/brayan-rocchio--200
+  ❌ No photo found for Brayan Rocchio
+
+🔄 Processing Braydon Fisher (ID: -1547, Team: None)
+  🔍 Scraping Braydon Fisher: https://www.mlb.com/player/braydon-fisher--1547
+  ❌ No photo found for Braydon Fisher
+
+🔄 Processing Brenan Hanifee (ID: -945, Team: None)
+  🔍 Scraping Brenan Hanifee: https://www.mlb.com/player/brenan-hanifee--945
+  ❌ No photo found for Brenan Hanifee
+
+🔄 Processing Brendan Donovan (ID: -58, Team: None)
+  🔍 Scraping Brendan Donovan: https://www.mlb.com/player/brendan-donovan--58
+  ❌ No photo found for Brendan Donovan
+
+🔄 Processing Brendan Rodgers (ID: -220, Team: None)
+  🔍 Scraping Brendan Rodgers: https://www.mlb.com/player/brendan-rodgers--220
+  ❌ No photo found for Brendan Rodgers
+
+🔄 Processing Brendon Little (ID: -905, Team: None)
+  🔍 Scraping Brendon Little: https://www.mlb.com/player/brendon-little--905
+  ❌ No photo found for Brendon Little
+
+📊 Batch 20 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 199/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 21/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Brennan Bernardino (ID: -654, Team: None)
+  🔍 Scraping Brennan Bernardino: https://www.mlb.com/player/brennan-bernardino--654
+  ❌ No photo found for Brennan Bernardino
+
+🔄 Processing Brent Headrick (ID: -1131, Team: None)
+  🔍 Scraping Brent Headrick: https://www.mlb.com/player/brent-headrick--1131
+  ❌ No photo found for Brent Headrick
+
+🔄 Processing Brent Honeywell (ID: -641, Team: None)
+  🔍 Scraping Brent Honeywell: https://www.mlb.com/player/brent-honeywell--641
+  ❌ No photo found for Brent Honeywell
+
+🔄 Processing Brenton Doyle (ID: -39, Team: None)
+  🔍 Scraping Brenton Doyle: https://www.mlb.com/player/brenton-doyle--39
+  ❌ No photo found for Brenton Doyle
+
+🔄 Processing Brent Rooker (ID: -12, Team: None)
+  🔍 Scraping Brent Rooker: https://www.mlb.com/player/brent-rooker--12
+  ❌ No photo found for Brent Rooker
+
+🔄 Processing Brent Suter (ID: -552, Team: None)
+  🔍 Scraping Brent Suter: https://www.mlb.com/player/brent-suter--552
+  ❌ No photo found for Brent Suter
+
+🔄 Processing Brett Baty (ID: -269, Team: None)
+  🔍 Scraping Brett Baty: https://www.mlb.com/player/brett-baty--269
+  ❌ No photo found for Brett Baty
+
+🔄 Processing Brett de Geus (ID: -986, Team: None)
+  🔍 Scraping Brett de Geus: https://www.mlb.com/player/brett-de-geus--986
+  ❌ No photo found for Brett de Geus
+
+🔄 Processing Brett Harris (ID: -1330, Team: None)
+  🔍 Scraping Brett Harris: https://www.mlb.com/player/brett-harris--1330
+  ❌ No photo found for Brett Harris
+
+🔄 Processing Brett Sullivan (ID: -1240, Team: None)
+  🔍 Scraping Brett Sullivan: https://www.mlb.com/player/brett-sullivan--1240
+  ❌ No photo found for Brett Sullivan
+
+📊 Batch 21 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 209/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 22/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Brett Wisely (ID: -253, Team: None)
+  🔍 Scraping Brett Wisely: https://www.mlb.com/player/brett-wisely--253
+  ❌ No photo found for Brett Wisely
+
+🔄 Processing Brewer Hicklen (ID: -1312, Team: None)
+  🔍 Scraping Brewer Hicklen: https://www.mlb.com/player/brewer-hicklen--1312
+  ❌ No photo found for Brewer Hicklen
+
+🔄 Processing Brian Anderson (ID: -1267, Team: None)
+  🔍 Scraping Brian Anderson: https://www.mlb.com/player/brian-anderson--1267
+  ❌ No photo found for Brian Anderson
+
+🔄 Processing Brian Serven (ID: -1302, Team: None)
+  🔍 Scraping Brian Serven: https://www.mlb.com/player/brian-serven--1302
+  ❌ No photo found for Brian Serven
+
+🔄 Processing Brice Matthews (ID: -1473, Team: None)
+  🔍 Scraping Brice Matthews: https://www.mlb.com/player/brice-matthews--1473
+  ❌ No photo found for Brice Matthews
+
+🔄 Processing Brice Turang (ID: -91, Team: None)
+  🔍 Scraping Brice Turang: https://www.mlb.com/player/brice-turang--91
+  ❌ No photo found for Brice Turang
+
+🔄 Processing Brock Burke (ID: -710, Team: None)
+  🔍 Scraping Brock Burke: https://www.mlb.com/player/brock-burke--710
+  ❌ No photo found for Brock Burke
+
+🔄 Processing Brock Stewart (ID: -651, Team: None)
+  🔍 Scraping Brock Stewart: https://www.mlb.com/player/brock-stewart--651
+  ❌ No photo found for Brock Stewart
+
+🔄 Processing Brooks Baldwin (ID: -375, Team: None)
+  🔍 Scraping Brooks Baldwin: https://www.mlb.com/player/brooks-baldwin--375
+  ❌ No photo found for Brooks Baldwin
+
+🔄 Processing Brooks Kriske (ID: -1521, Team: None)
+  🔍 Scraping Brooks Kriske: https://www.mlb.com/player/brooks-kriske--1521
+  ❌ No photo found for Brooks Kriske
+
+📊 Batch 22 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 219/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 23/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Brooks Lee (ID: -1324, Team: None)
+  🔍 Scraping Brooks Lee: https://www.mlb.com/player/brooks-lee--1324
+  ❌ No photo found for Brooks Lee
+
+🔄 Processing Brooks Raley (ID: -463, Team: None)
+  🔍 Scraping Brooks Raley: https://www.mlb.com/player/brooks-raley--463
+  ❌ No photo found for Brooks Raley
+
+🔄 Processing Brusdar Graterol (ID: -847, Team: None)
+  🔍 Scraping Brusdar Graterol: https://www.mlb.com/player/brusdar-graterol--847
+  ❌ No photo found for Brusdar Graterol
+
+🔄 Processing Bryan Abreu (ID: -647, Team: None)
+  🔍 Scraping Bryan Abreu: https://www.mlb.com/player/bryan-abreu--647
+  ❌ No photo found for Bryan Abreu
+
+🔄 Processing Bryan Baker (ID: -796, Team: None)
+  🔍 Scraping Bryan Baker: https://www.mlb.com/player/bryan-baker--796
+  ❌ No photo found for Bryan Baker
+
+🔄 Processing Bryan De La Cruz (ID: -1429, Team: None)
+  🔍 Scraping Bryan De La Cruz: https://www.mlb.com/player/bryan-de-la-cruz--1429
+  ❌ No photo found for Bryan De La Cruz
+
+🔄 Processing Bryan Hoeing (ID: -1083, Team: None)
+  🔍 Scraping Bryan Hoeing: https://www.mlb.com/player/bryan-hoeing--1083
+  ❌ No photo found for Bryan Hoeing
+
+🔄 Processing Bryan Hudson (ID: -809, Team: None)
+  🔍 Scraping Bryan Hudson: https://www.mlb.com/player/bryan-hudson--809
+  ❌ No photo found for Bryan Hudson
+
+🔄 Processing Bryan King (ID: -1055, Team: None)
+  🔍 Scraping Bryan King: https://www.mlb.com/player/bryan-king--1055
+  ❌ No photo found for Bryan King
+
+🔄 Processing Bryan Ramos (ID: -1350, Team: None)
+  🔍 Scraping Bryan Ramos: https://www.mlb.com/player/bryan-ramos--1350
+  ❌ No photo found for Bryan Ramos
+
+📊 Batch 23 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 229/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 24/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Bryan Reynolds (ID: -112, Team: None)
+  🔍 Scraping Bryan Reynolds: https://www.mlb.com/player/bryan-reynolds--112
+  ❌ No photo found for Bryan Reynolds
+
+🔄 Processing Bryan Sammons (ID: -857, Team: None)
+  🔍 Scraping Bryan Sammons: https://www.mlb.com/player/bryan-sammons--857
+  ❌ No photo found for Bryan Sammons
+
+🔄 Processing Bryan Shaw (ID: -450, Team: None)
+  🔍 Scraping Bryan Shaw: https://www.mlb.com/player/bryan-shaw--450
+  ❌ No photo found for Bryan Shaw
+
+🔄 Processing Bryan Woo (ID: -1196, Team: None)
+  🔍 Scraping Bryan Woo: https://www.mlb.com/player/bryan-woo--1196
+  ❌ No photo found for Bryan Woo
+
+🔄 Processing Bryce Elder (ID: -1137, Team: None)
+  🔍 Scraping Bryce Elder: https://www.mlb.com/player/bryce-elder--1137
+  ❌ No photo found for Bryce Elder
+
+🔄 Processing Bryce Harper (ID: -13, Team: None)
+  🔍 Scraping Bryce Harper: https://www.mlb.com/player/bryce-harper--13
+  ❌ No photo found for Bryce Harper
+
+🔄 Processing Bryce Jarvis (ID: -1103, Team: None)
+  🔍 Scraping Bryce Jarvis: https://www.mlb.com/player/bryce-jarvis--1103
+  ❌ No photo found for Bryce Jarvis
+
+🔄 Processing Bryce Johnson (ID: -409, Team: None)
+  🔍 Scraping Bryce Johnson: https://www.mlb.com/player/bryce-johnson--409
+  ❌ No photo found for Bryce Johnson
+
+🔄 Processing Bryce Miller (ID: -1161, Team: None)
+  🔍 Scraping Bryce Miller: https://www.mlb.com/player/bryce-miller--1161
+  ❌ No photo found for Bryce Miller
+
+🔄 Processing Bryce Teodosio (ID: -1342, Team: None)
+  🔍 Scraping Bryce Teodosio: https://www.mlb.com/player/bryce-teodosio--1342
+  ❌ No photo found for Bryce Teodosio
+
+📊 Batch 24 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 239/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 25/170 (10 players)
+------------------------------------------------------------
+
+🔄 Processing Bryse Wilson (ID: -815, Team: None)
+  🔍 Scraping Bryse Wilson: https://www.mlb.com/player/bryse-wilson--815
+  ❌ No photo found for Bryse Wilson
+
+🔄 Processing Bryson Stott (ID: -148, Team: None)
+  🔍 Scraping Bryson Stott: https://www.mlb.com/player/bryson-stott--148
+  ❌ No photo found for Bryson Stott
+
+🔄 Processing Bubba Thompson (ID: -1258, Team: None)
+  🔍 Scraping Bubba Thompson: https://www.mlb.com/player/bubba-thompson--1258
+  ❌ No photo found for Bubba Thompson
+
+🔄 Processing Buck Farmer (ID: -576, Team: None)
+  🔍 Scraping Buck Farmer: https://www.mlb.com/player/buck-farmer--576
+  ❌ No photo found for Buck Farmer
+
+🔄 Processing Buddy Kennedy (ID: -330, Team: None)
+  🔍 Scraping Buddy Kennedy: https://www.mlb.com/player/buddy-kennedy--330
+  ❌ No photo found for Buddy Kennedy
+
+🔄 Processing Burch Smith (ID: -507, Team: None)
+  🔍 Scraping Burch Smith: https://www.mlb.com/player/burch-smith--507
+  ❌ No photo found for Burch Smith
+
+🔄 Processing Byron Buxton (ID: -36, Team: None)
+  🔍 Scraping Byron Buxton: https://www.mlb.com/player/byron-buxton--36
+  ❌ No photo found for Byron Buxton
+
+🔄 Processing Cade Gibson (ID: -1623, Team: None)
+  🔍 Scraping Cade Gibson: https://www.mlb.com/player/cade-gibson--1623
+  ❌ No photo found for Cade Gibson
+
+🔄 Processing Cade Horton (ID: -1624, Team: None)
+  🔍 Scraping Cade Horton: https://www.mlb.com/player/cade-horton--1624
+  ❌ No photo found for Cade Horton
+
+🔄 Processing Cade Marlowe (ID: -401, Team: None)
+  🔍 Scraping Cade Marlowe: https://www.mlb.com/player/cade-marlowe--401
+  ❌ No photo found for Cade Marlowe
+
+📊 Batch 25 Complete:
+   Photos Found: 1/1693
+   Downloads: 1/1693
+   Failed: 249/1693
+⏱️  Waiting 3 seconds before next batch...
+
+📦 Processing batch 26/170 (10 players)

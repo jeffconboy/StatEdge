@@ -1,0 +1,124 @@
+version: '3.8'
+
+services:
+  # Sports Database (our MLB data)
+  sports-db:
+    image: postgres:15-alpine
+    container_name: statedge-sports-db
+    environment:
+      POSTGRES_DB: sports_data
+      POSTGRES_USER: sports_user
+      POSTGRES_PASSWORD: sports_secure_2025
+    ports:
+      - "5432:5432"
+    volumes:
+      - sports_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sports_user -d sports_data"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - statedge-network
+
+  # Users Database
+  users-db:
+    image: postgres:15-alpine
+    container_name: statedge-users-db
+    environment:
+      POSTGRES_DB: users_data
+      POSTGRES_USER: users_user
+      POSTGRES_PASSWORD: users_secure_2025
+    ports:
+      - "5433:5432"
+    volumes:
+      - users_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U users_user -d users_data"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - statedge-network
+
+  # Python Backend (FastAPI)
+  python-service:
+    image: jeffconboy/mlb-data-service:python-backend
+    container_name: statedge-python
+    environment:
+      - DATABASE_URL=postgresql://sports_user:sports_secure_2025@sports-db:5432/sports_data
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./python-service:/app
+      - ./static:/app/static
+    ports:
+      - "18001:8000"
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    depends_on:
+      sports-db:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - statedge-network
+
+  # Node.js API Gateway
+  node-api:
+    build: ./node-api
+    container_name: statedge-node-api
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+      - DATABASE_URL=postgresql://sports_user:sports_secure_2025@sports-db:5432/sports_data
+      - PYTHON_SERVICE_URL=http://python-service:8000
+    ports:
+      - "3001:3001"
+    depends_on:
+      sports-db:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - statedge-network
+
+  # React Frontend
+  frontend:
+    image: jeffconboy/mlb-data-service:react-frontend
+    container_name: statedge-frontend
+    environment:
+      - REACT_APP_API_URL=http://localhost:3001
+      - REACT_APP_PYTHON_API_URL=http://localhost:18001
+    ports:
+      - "3002:3002"
+    depends_on:
+      - python-service
+      - node-api
+    restart: unless-stopped
+    networks:
+      - statedge-network
+
+  # Grafana Monitoring
+  grafana:
+    image: grafana/grafana:10.0.0
+    container_name: statedge-grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin123
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    restart: unless-stopped
+    networks:
+      - statedge-network
+
+networks:
+  statedge-network:
+    driver: bridge
+
+volumes:
+  sports_data:
+    driver: local
+  users_data:
+    driver: local
+  grafana_data:
+    driver: local

@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-sm hover:shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-200 hover:bg-secondary-300 active:bg-secondary-400 text-secondary-700 font-medium py-2.5 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-success {
+    @apply bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-sm hover:shadow-md;
+  }
+  
+  .input-primary {
+    @apply border border-secondary-300 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-secondary-400;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-secondary-200 p-6 transition-all duration-200 hover:shadow-xl;
+  }
+  
+  .stat-card {
+    @apply bg-gradient-to-br from-white to-secondary-50 rounded-lg p-4 border border-secondary-200 hover:shadow-lg transition-all duration-200 transform hover:-translate-y-1;
+  }
+  
+  .loading-pulse {
+    @apply animate-pulse bg-gradient-to-r from-secondary-200 via-secondary-300 to-secondary-200 bg-[length:200%_100%] animate-[shimmer_2s_infinite];
+  }
+  
+  .success-indicator {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800;
+  }
+  
+  .warning-indicator {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800;
+  }
+  
+  .info-indicator {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(45deg, #3B82F6, #1D4ED8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

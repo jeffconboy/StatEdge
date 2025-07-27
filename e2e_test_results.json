@@ -1,0 +1,56 @@
+[
+  {
+    "test": "Database Connection",
+    "status": "PASS",
+    "message": "Teams: 30, Players: 781, Games: 16",
+    "timestamp": "2025-07-26T19:01:29.275222"
+  },
+  {
+    "test": "Python Backend Health",
+    "status": "FAIL",
+    "message": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+    "timestamp": "2025-07-26T19:01:29.276661"
+  },
+  {
+    "test": "Node Backend Health",
+    "status": "FAIL",
+    "message": "HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f30765000e0>: Failed to establish a new connection: [Errno 111] Connection refused'))",
+    "timestamp": "2025-07-26T19:01:29.277270"
+  },
+  {
+    "test": "Python API /api/players/trending",
+    "status": "FAIL",
+    "message": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+    "timestamp": "2025-07-26T19:01:29.277910"
+  },
+  {
+    "test": "Python API /api/live-games",
+    "status": "FAIL",
+    "message": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+    "timestamp": "2025-07-26T19:01:29.278528"
+  },
+  {
+    "test": "Python API /api/league-stats/leaders/batting",
+    "status": "FAIL",
+    "message": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+    "timestamp": "2025-07-26T19:01:29.279215"
+  },
+  {
+    "test": "Frontend Accessibility",
+    "status": "PASS",
+    "message": "Frontend loading successfully",
+    "timestamp": "2025-07-26T19:01:29.281362"
+  },
+  {
+    "test": "Data Flow Integration",
+    "status": "FAIL",
+    "message": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+    "timestamp": "2025-07-26T19:01:29.287102"
+  },
+  {
+    "test": "MLB Data Freshness",
+    "status": "PASS",
+    "message": "Data updated -3.6 hours ago",
+    "timestamp": "2025-07-26T19:01:29.292053"
+  }
+]
